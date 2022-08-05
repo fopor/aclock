@@ -1,6 +1,7 @@
 #include <math.h>
 #include <cairo.h>
 #include <gtk/gtk.h>
+#include <string.h>
 #include <time.h>
 
 #define WINDOW_WIDTH  300
@@ -160,6 +161,7 @@ static gboolean draw_cb(GtkWidget *widget, cairo_t *cr, gpointer data)
             CAIRO_FONT_SLANT_NORMAL, CAIRO_FONT_WEIGHT_BOLD); */
    cairo_set_font_size (cr, 30);
    cairo_move_to(cr, midx-(midx/2),midy/2);
+   strcpy(buffer, " ");
    cairo_show_text(cr, buffer);
 
    //cairo_set_source_rgb(cr, BLUE);
@@ -176,7 +178,6 @@ static gboolean draw_cb(GtkWidget *widget, cairo_t *cr, gpointer data)
      cairo_stroke(cr);
    }
 
-   DrawSeconds (widget, cr, midx, midy);
    DrawMinutes (widget, cr, midx, midy);
    DrawHours (widget, cr, midx, midy);
 
